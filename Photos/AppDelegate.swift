@@ -34,7 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let networkService = NetworkServiceImpl()
         let api = APIImpl(host: configuration.host, networkService: networkService)
         let imageLoader = ImageLoaderImpl(networkService: networkService)
-        let imageCache = ImageCacheImpl(imageLoader: imageLoader)
+        let imageCache = ImageCacheImpl(
+            imageStore: ImageStoreImpl(),
+            imageLoader: imageLoader
+        )
 
         return AppCoordinator.Context(api: api, imageLoader: imageLoader, imageCache: imageCache)
     }

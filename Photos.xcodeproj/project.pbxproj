@@ -32,6 +32,8 @@
 		D457421724A32732002445D5 /* ApiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421624A32732002445D5 /* ApiMock.swift */; };
 		D457421924A3289C002445D5 /* ImageCacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421824A3289C002445D5 /* ImageCacheMock.swift */; };
 		D457421B24A32AEE002445D5 /* PhotoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421A24A32AEE002445D5 /* PhotoMock.swift */; };
+		D457421F24A35987002445D5 /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421E24A35987002445D5 /* ImageCacheTests.swift */; };
+		D457422124A359B8002445D5 /* ImageLoaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457422024A359B8002445D5 /* ImageLoaderMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		D457421624A32732002445D5 /* ApiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMock.swift; sourceTree = "<group>"; };
 		D457421824A3289C002445D5 /* ImageCacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheMock.swift; sourceTree = "<group>"; };
 		D457421A24A32AEE002445D5 /* PhotoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMock.swift; sourceTree = "<group>"; };
+		D457421E24A35987002445D5 /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
+		D457422024A359B8002445D5 /* ImageLoaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				D457421524A32724002445D5 /* Mocks */,
 				D45741D124A10F87002445D5 /* Info.plist */,
 				D457421324A326B0002445D5 /* PhotosListViewModelTests.swift */,
+				D457421E24A35987002445D5 /* ImageCacheTests.swift */,
 			);
 			path = PhotosTests;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				D457421624A32732002445D5 /* ApiMock.swift */,
 				D457421824A3289C002445D5 /* ImageCacheMock.swift */,
 				D457421A24A32AEE002445D5 /* PhotoMock.swift */,
+				D457422024A359B8002445D5 /* ImageLoaderMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -344,6 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D457421924A3289C002445D5 /* ImageCacheMock.swift in Sources */,
+				D457421F24A35987002445D5 /* ImageCacheTests.swift in Sources */,
+				D457422124A359B8002445D5 /* ImageLoaderMock.swift in Sources */,
 				D457421424A326B0002445D5 /* PhotosListViewModelTests.swift in Sources */,
 				D457421B24A32AEE002445D5 /* PhotoMock.swift in Sources */,
 				D457421724A32732002445D5 /* ApiMock.swift in Sources */,
