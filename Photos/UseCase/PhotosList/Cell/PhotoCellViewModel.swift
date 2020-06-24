@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class PhotoCellViewModel: Hashable, Equatable {
+final class PhotoCellViewModel: Hashable {
     static func == (lhs: PhotoCellViewModel, rhs: PhotoCellViewModel) -> Bool {
         lhs.id == rhs.id
     }
@@ -18,10 +18,10 @@ final class PhotoCellViewModel: Hashable, Equatable {
         hasher.combine(id)
     }
 
-    var imageUpdated: ((UIImage) -> Void)?
-    let thumbnailURL: URL
-    let title: String
     let id: Int
+    let title: String
+    let thumbnailURL: URL
+    var image: UIImage?
 
     private let imageCache: ImageCache
 
@@ -32,12 +32,13 @@ final class PhotoCellViewModel: Hashable, Equatable {
         self.imageCache = imageCache
     }
 
-    func loadImage() {
-        imageCache.load(url: thumbnailURL) { [weak self] image in
-            guard let image = image else {
+    func loadImage(completion: @escaping () -> Void) {
+        imageCache.load(url: thumbnailURL) { [weak self] result in
+            guard let result = result, result != self?.image else {
                 return
             }
-            self?.imageUpdated?(image)
+            self?.image = result
+            completion()
         }
     }
 }

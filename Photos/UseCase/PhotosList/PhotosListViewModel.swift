@@ -11,6 +11,8 @@ import Foundation
 protocol PhotosListViewModel {
     var output: PhotosList.Output? { get set }
     func photoSelected(_ viewModel: PhotoCellViewModel)
+
+    var imageCache: ImageCache { get }
 }
 
 extension PhotosList {
@@ -31,9 +33,11 @@ extension PhotosList {
     final class ViewModel: PhotosListViewModel {
         var output: Output?
         private var handlers: Handlers
+        let imageCache: ImageCache
 
         init(context: Context, handlers: Handlers) {
             self.handlers = handlers
+            self.imageCache = context.imageCache
             context.api.call(endpoint: .getPhotos) { [weak self] (result: Result<[Photo], NetworkError>) in
                 switch result {
                 case .success(let photos):

@@ -11,6 +11,8 @@ import UIKit
 final class PhotosListViewController: UITableViewController {
     var viewModel: PhotosListViewModel!
 
+    private let queue = DispatchQueue(label: "images.queue")
+
     private enum Section {
         case main
     }
@@ -32,22 +34,36 @@ final class PhotosListViewController: UITableViewController {
                 for: indexPath) as? PhotoCell else {
                     fatalError("Couldn't dequeue a cell")
             }
+            
             cell.setup(with: photoItem)
-            photoItem.loadImage()
+
+            photoItem.loadImage(completion: { [weak self] in
+                guard let self = self else { return }
+                var updatedSnapshot = self.dataSource.snapshot()
+                self.queue.async {                    
+                    updatedSnapshot.reloadItems([photoItem])
+                    self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
+                }
+            })
             return cell
         })
 
+        tableView.rowHeight = 120
+        tableView.estimatedRowHeight = 0
         tableView.register(PhotoCell.self, forCellReuseIdentifier: cellIdentifier)
     }
 
     private func setupBindings() {
         viewModel.output = PhotosList.Output(
             photoItems: { [weak self] items in
-                var initialSnapshot = NSDiffableDataSourceSnapshot<Section, PhotoCellViewModel>()
-                initialSnapshot.appendSections([.main])
-                initialSnapshot.appendItems(items)
+                guard let self = self else { return }
+                self.queue.async {
+                    var initialSnapshot = NSDiffableDataSourceSnapshot<Section, PhotoCellViewModel>()
+                    initialSnapshot.appendSections([.main])
+                    initialSnapshot.appendItems(items)
 
-                self?.dataSource.apply(initialSnapshot, animatingDifferences: false)
+                    self.dataSource.apply(initialSnapshot, animatingDifferences: true)
+                }
             },
             error: { [weak self] in
                 self?.displayError(with: $0)

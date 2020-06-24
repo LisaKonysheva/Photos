@@ -41,11 +41,10 @@ final class PhotoCell: UITableViewCell {
 
         photoThumbnailView
             .top(8)
+            .bottom(8)
             .leading(16)
+            .height(equalTo: photoThumbnailView.widthAnchor)
             .trailing(16, to: titleLabel.leadingAnchor)
-            .width(80)
-            .centerY()
-            .height(80, priority: .defaultHigh)
 
         titleLabel
             .top(8)
@@ -54,9 +53,7 @@ final class PhotoCell: UITableViewCell {
 
     func setup(with viewModel: PhotoCellViewModel) {
         titleLabel.text = viewModel.title
-        viewModel.imageUpdated = {
-            self.photoThumbnailView.image = $0
-        }
+        photoThumbnailView.image = viewModel.image
     }
 }
 
