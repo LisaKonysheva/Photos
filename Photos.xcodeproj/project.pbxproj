@@ -10,7 +10,6 @@
 		D45741B924A10F85002445D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45741B824A10F85002445D5 /* AppDelegate.swift */; };
 		D45741C224A10F87002445D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45741C124A10F87002445D5 /* Assets.xcassets */; };
 		D45741C524A10F87002445D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45741C324A10F87002445D5 /* LaunchScreen.storyboard */; };
-		D45741D024A10F87002445D5 /* PhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45741CF24A10F87002445D5 /* PhotosTests.swift */; };
 		D45741DD24A113A7002445D5 /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45741DC24A113A7002445D5 /* PhotosListViewController.swift */; };
 		D45741DF24A113C9002445D5 /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45741DE24A113C9002445D5 /* PhotosListViewModel.swift */; };
 		D45741E124A113D2002445D5 /* PhotosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45741E024A113D2002445D5 /* PhotosList.swift */; };
@@ -29,6 +28,10 @@
 		D457420324A21473002445D5 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457420224A21473002445D5 /* ImageLoader.swift */; };
 		D457420524A21598002445D5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457420424A21598002445D5 /* API.swift */; };
 		D457420C24A24E52002445D5 /* UIViewController+Error..swift in Sources */ = {isa = PBXBuildFile; fileRef = D457420B24A24E51002445D5 /* UIViewController+Error..swift */; };
+		D457421424A326B0002445D5 /* PhotosListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421324A326B0002445D5 /* PhotosListViewModelTests.swift */; };
+		D457421724A32732002445D5 /* ApiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421624A32732002445D5 /* ApiMock.swift */; };
+		D457421924A3289C002445D5 /* ImageCacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421824A3289C002445D5 /* ImageCacheMock.swift */; };
+		D457421B24A32AEE002445D5 /* PhotoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457421A24A32AEE002445D5 /* PhotoMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +51,6 @@
 		D45741C424A10F87002445D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D45741C624A10F87002445D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45741CB24A10F87002445D5 /* PhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D45741CF24A10F87002445D5 /* PhotosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTests.swift; sourceTree = "<group>"; };
 		D45741D124A10F87002445D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45741DC24A113A7002445D5 /* PhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewController.swift; sourceTree = "<group>"; };
 		D45741DE24A113C9002445D5 /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
@@ -68,6 +70,10 @@
 		D457420224A21473002445D5 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		D457420424A21598002445D5 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D457420B24A24E51002445D5 /* UIViewController+Error..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error..swift"; sourceTree = "<group>"; };
+		D457421324A326B0002445D5 /* PhotosListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModelTests.swift; sourceTree = "<group>"; };
+		D457421624A32732002445D5 /* ApiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMock.swift; sourceTree = "<group>"; };
+		D457421824A3289C002445D5 /* ImageCacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheMock.swift; sourceTree = "<group>"; };
+		D457421A24A32AEE002445D5 /* PhotoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +131,9 @@
 		D45741CE24A10F87002445D5 /* PhotosTests */ = {
 			isa = PBXGroup;
 			children = (
-				D45741CF24A10F87002445D5 /* PhotosTests.swift */,
+				D457421524A32724002445D5 /* Mocks */,
 				D45741D124A10F87002445D5 /* Info.plist */,
+				D457421324A326B0002445D5 /* PhotosListViewModelTests.swift */,
 			);
 			path = PhotosTests;
 			sourceTree = "<group>";
@@ -198,6 +205,16 @@
 				D457420024A20E29002445D5 /* PhotoDetailsViewModel.swift */,
 			);
 			path = PhotoDetails;
+			sourceTree = "<group>";
+		};
+		D457421524A32724002445D5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D457421624A32732002445D5 /* ApiMock.swift */,
+				D457421824A3289C002445D5 /* ImageCacheMock.swift */,
+				D457421A24A32AEE002445D5 /* PhotoMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D45741D024A10F87002445D5 /* PhotosTests.swift in Sources */,
+				D457421924A3289C002445D5 /* ImageCacheMock.swift in Sources */,
+				D457421424A326B0002445D5 /* PhotosListViewModelTests.swift in Sources */,
+				D457421B24A32AEE002445D5 /* PhotoMock.swift in Sources */,
+				D457421724A32732002445D5 /* ApiMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ import UIKit
 
 protocol PhotoDetailsViewModel {
     var output: PhotoDetails.Output? { get set }
+    func loadPhoto()
 }
 
 extension PhotoDetails {
@@ -28,9 +29,14 @@ extension PhotoDetails {
     final class ViewModel: PhotoDetailsViewModel {
         var output: Output?
         private let context: Context
+        private let photoId: Int
 
         init(context: Context, photoId: Int) {
             self.context = context
+            self.photoId = photoId
+        }
+
+        func loadPhoto() {
             loadPhoto(with: photoId)
         }
 

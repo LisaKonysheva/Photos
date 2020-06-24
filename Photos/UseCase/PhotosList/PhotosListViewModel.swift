@@ -10,9 +10,8 @@ import Foundation
 
 protocol PhotosListViewModel {
     var output: PhotosList.Output? { get set }
+    func loadItems()
     func photoSelected(_ viewModel: PhotoCellViewModel)
-
-    var imageCache: ImageCache { get }
 }
 
 extension PhotosList {
@@ -33,21 +32,25 @@ extension PhotosList {
     final class ViewModel: PhotosListViewModel {
         var output: Output?
         private var handlers: Handlers
-        let imageCache: ImageCache
+        private let context: Context
 
         init(context: Context, handlers: Handlers) {
             self.handlers = handlers
-            self.imageCache = context.imageCache
+            self.context = context
+        }
+
+        func loadItems() {
             context.api.call(endpoint: .getPhotos) { [weak self] (result: Result<[Photo], NetworkError>) in
+                guard let self = self else { return }
                 switch result {
                 case .success(let photos):
                     let items = photos.map { PhotoCellViewModel(
                         photo: $0,
-                        imageCache: context.imageCache)
+                        imageCache: self.context.imageCache)
                     }
-                    self?.output?.photoItems(items)
+                    self.output?.photoItems(items)
                 case .failure(let error):
-                    self?.output?.error(error.title)
+                    self.output?.error(error.title)
                 }
             }
         }

@@ -21,6 +21,7 @@ final class PhotoDetailsViewController: UIViewController {
 
         setupUI()
         setupBindings()
+        viewModel.loadPhoto()
     }
 
     private func setupUI() {

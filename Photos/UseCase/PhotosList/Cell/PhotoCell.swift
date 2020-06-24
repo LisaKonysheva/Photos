@@ -9,6 +9,8 @@
 import UIKit
 
 final class PhotoCell: UITableViewCell {
+    static let reuseIdentifier = "photo.cellIdentifier"
+
     private var photoThumbnailView: UIImageView!
     private var titleLabel: UILabel!
 
@@ -56,4 +58,3 @@ final class PhotoCell: UITableViewCell {
         photoThumbnailView.image = viewModel.image
     }
 }
-
